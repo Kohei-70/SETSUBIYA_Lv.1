@@ -1,0 +1,39 @@
+<div class = "container">
+  <div class = "row">
+    <div class = "col-md-8 mx-auto">
+      <div class = "row">
+        <div class = "col-6">
+          <h5>問題一覧</h5>
+        </div>
+        <div class = "col-6 text-right">
+          <%= link_to new_admin_quiz_path do %>
+            <button type = "button" class="btn btn-light rounded-circle p-0" style = "width:2rem;height:2rem;">
+              <i class = "fa-solid fa-plus"></i>
+            </button>
+          <% end %>
+        </div>
+      </div>
+      <table class = "table table-hover table-inverse mt-3">
+        <thead>
+          <tr>
+            <th>問題ID</th>
+            <th>タグ</th>
+            <th>タイトル</th>
+            <th colspan = "5"></th>
+          </tr>
+        </thead>
+        <% @quizzes.each do |quiz| %>
+        <tbody>
+          <tr>
+            <td><%= quiz.id %></td>
+            <td><%= quiz.tag %></td>
+            <td><%= link_to quiz.title, admin_quiz_path(quiz) %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<%= paginate @quizzes %>
+

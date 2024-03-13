@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h4 class="my-5"><%= @user.name %>さんの会員詳細</h4>
+      <div class="d-flex align-items-center">
+        <table class="table table-bordrless">
+          <tr>
+            <th>会員ID</th>
+            <td><%= @user.id %></td>
+          </tr>
+          <tr>
+            <th>ユーザー名</th>
+            <td><%= @user.name %></td>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <td><%= @user.email %></td>
+          </tr>
+          <tr>
+            <th>会員ステータス</th>
+            <td><%#= @user.user_status %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= link_to "編集する", edit_admin_user_path(@user) %>
+            <%#= link_to "注文履歴一覧を見る", admin_root_path, class:"btn btn-primary" %>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+

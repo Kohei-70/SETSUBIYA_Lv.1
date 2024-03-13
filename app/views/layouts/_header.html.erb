@@ -1,0 +1,62 @@
+<header>
+  <nav class = "navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class = "container address">
+    <button type = "button" class = "btn btn-lg btn-outline-secondary">
+      <div class ="address">
+      <%= link_to root_path, class: "navbar-brand m-auto" do %>
+        <i class = "fa-solid fa-cake-candles"></i> 設備屋Lv.1 <i class = "fa-solid fa-cake-candles"></i>
+      <% end %>
+      </div>
+    </button>
+    <button class = "navbar-toggler" type = "button" data-toggle = "collapse" data-target = "#navbarNavDropdown" aria-controls = "navbarNavDropdown" aria-expanded = "false" aria-label = "Toggle navigation">
+      <span class = "navbar-toggler-icon"></span>
+    </button>
+    <div class = "collapse navbar-collapse" id = "navbarNavDropdown">
+      <ul class = "navbar-nav ml-auto">
+          <% if admin_signed_in? %>
+            <li>
+              <button type = "button" class = "btn btn-sm btn-outline-secondary ml-3">
+                <%= link_to "問題一覧", admin_quizzes_path, class: 'nav-link text-light' %>
+              </button>
+            </li>
+            <li>
+              <button type = "button" class = "btn btn-sm btn-outline-secondary ml-3">
+              <%= link_to "会員一覧", admin_users_path, class: 'nav-link text-light' %>
+              </button>
+            </li>
+            <li>
+              <button type = "button" class = "btn btn-sm btn-outline-secondary ml-3">
+                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-light' %>
+              </button>
+            </li>
+          <% elsif user_signed_in? %>
+            <!--userログイン状態の際に、表示したいheaderのメニューを記載-->
+            <div class = "navbar-text text-light">ようこそ、<%= current_user.name %>さん！</div>
+            <li>
+              <button type = "button" class = "btn btn-sm btn-outline-secondary ml-3">
+                <%= link_to "マイページ", user_path(current_user.id), class: 'nav-link text-light' %>
+              </button>
+            </li>
+            <li>
+              <button type = "button" class = "btn btn-sm btn-outline-secondary ml-3">
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-light' %>
+              </button>
+            </li>
+          <% else %>
+            <!--adminでもuserでもログインしていない時に表示するheaderのメニューを記載-->
+            <li>
+              <button type = "button" class = "btn btn-sm btn-outline-secondary ml-3">
+                <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-light' %>
+              </button>
+            </li>
+            <li>
+              <button type = "button" class = "btn btn-sm btn-outline-secondary ml-3">
+                <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-light' %>
+              </button>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,109 @@
+<div class = "container">
+  <div class = "row">
+    <div class = "col-md-8 mx-auto">
+      <h5>問題新規登録</h5>
+    </div>
+  </div>
+  <div class = "row">
+    <div class = "col-md-6 mx-auto">
+      <%= form_with model: @quiz, url: admin_quizzes_path, method: :post do |f| %>
+      <div class = "form-group">
+
+        <div class = "row mt-2">
+          <div class = "col-3">
+            <%= f.label :タグ %>
+          </div>
+          <div class = "col-9">
+            <%= f.text_field :tag, class: "form-control tag" %>
+          </div>
+        </div>
+
+        <div class = "row mt-2">
+          <div class = "col-3">
+            <%= f.label :タイトル %>
+          </div>
+          <div class = "col-9">
+            <%= f.text_field :title, class: "form-control title" %>
+          </div>
+        </div>
+
+        <div class = "row mt-2">
+          <div class = "col-3">
+            <%= f.label :問題 %>
+          </div>
+          <div class = "col-9">
+            <%= f.text_area :question, class: "form-control question" %>
+          </div>
+        </div>
+
+        <div class = "row mt-2">
+          <div class = "col-3">
+            <%= f.label :選択肢A %>
+          </div>
+          <div class = "col-9">
+            <%= f.text_area :answer1, class: "form-control answer1" %>
+          </div>
+        </div>
+
+        <div class = "row mt-2">
+          <div class = "col-3">
+            <%= f.label :選択肢B %>
+          </div>
+          <div class = "col-9">
+            <%= f.text_area :answer2, class: "form-control answer2" %>
+          </div>
+        </div>
+
+        <div class = "row mt-2">
+          <div class = "col-3">
+            <%= f.label :選択肢C %>
+          </div>
+          <div class = "col-9">
+            <%= f.text_area :answer3, class: "form-control answer3" %>
+          </div>
+        </div>
+
+        <div class = "row mt-2">
+          <div class = "col-3">
+            <%= f.label :選択肢D %>
+          </div>
+          <div class = "col-9">
+            <%= f.text_area :answer4, class: "form-control answer4" %>
+          </div>
+        </div>
+
+        <div class = "row mt-2">
+          <div class = "col-3">
+            <%= f.label :解説 %>
+          </div>
+          <div class = "col-9">
+            <%= f.text_area :description, class: "form-control description" %>
+          </div>
+        </div>
+
+        <!--<div class = "row mt-2">-->
+        <!--  <div class = "col-3">-->
+        <!--    <%#= f.label :ジャンル %>-->
+        <!--  </div>-->
+        <!--  <div class = "col-9">-->
+        <!--    <%#= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい" %>-->
+        <!--  </div>-->
+        <!--</div>-->
+
+        <!--<div class = "row mt-2">-->
+        <!--  <div class = "col-3">-->
+        <!--    <%#= f.label :税抜価格 %>-->
+        <!--  </div>-->
+        <!--  <div class = "col-8">-->
+        <!--    <%#= f.text_field :price, class: "form-control price" %>-->
+        <!--  </div>-->
+        <!--</div>-->
+
+        <div class = "actions text-center mt-3">
+          <%= f.submit "新規登録", class: "btn btn-success" %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
