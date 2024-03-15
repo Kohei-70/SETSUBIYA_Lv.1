@@ -36,7 +36,7 @@
 
         <div class = "row mt-2">
           <div class = "col-3">
-            <%= f.label :選択肢A %>
+            <%= f.label :選択肢1 %>
           </div>
           <div class = "col-9">
             <%= f.text_area :answer1, class: "form-control answer1" %>
@@ -45,7 +45,7 @@
 
         <div class = "row mt-2">
           <div class = "col-3">
-            <%= f.label :選択肢B %>
+            <%= f.label :選択肢2 %>
           </div>
           <div class = "col-9">
             <%= f.text_area :answer2, class: "form-control answer2" %>
@@ -54,7 +54,7 @@
 
         <div class = "row mt-2">
           <div class = "col-3">
-            <%= f.label :選択肢C %>
+            <%= f.label :選択肢3 %>
           </div>
           <div class = "col-9">
             <%= f.text_area :answer3, class: "form-control answer3" %>
@@ -63,10 +63,19 @@
 
         <div class = "row mt-2">
           <div class = "col-3">
-            <%= f.label :選択肢D %>
+            <%= f.label :選択肢4 %>
           </div>
           <div class = "col-9">
             <%= f.text_area :answer4, class: "form-control answer4" %>
+          </div>
+        </div>
+
+        <div class = "row mt-2">
+          <div class = "col-3">
+            <%= f.label :正解 %>
+          </div>
+          <div class = "col-9">
+            <%= f.collection_select :answer, [1,2,3,4], :to_s, :to_s, include_blank: "選択して下さい" %>
           </div>
         </div>
 
