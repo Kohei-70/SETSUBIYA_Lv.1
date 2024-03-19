@@ -1,9 +1,8 @@
-class CreateAnswerRecords < ActiveRecord::Migration[6.1]
+class CreateBookmarks < ActiveRecord::Migration[6.1]
   def change
-    create_table :answer_records do |t|
+    create_table :bookmarks do |t|
       t.integer :quiz_id, null: false
       t.integer :user_id, null: false
-      t.integer :answer
       t.timestamps
     end
   end

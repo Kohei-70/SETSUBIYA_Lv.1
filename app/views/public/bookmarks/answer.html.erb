@@ -1,0 +1,8 @@
+<p><%= @result %></p>
+<p>解説: <%= @quiz.description %></p>
+<!--<td id="bookmark_btn_<%#= @quiz.id %>">-->
+<div class=<%= "bookmark-" + @quiz.id.to_s %> >
+  <%= render "public/bookmarks/btn", quiz: @quiz %>
+</div>
+
+<%= link_to "ブックマーク一覧に戻る", quiz_bookmarks_path(current_user) %>

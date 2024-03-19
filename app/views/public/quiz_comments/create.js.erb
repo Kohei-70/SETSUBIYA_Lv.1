@@ -1,0 +1,3 @@
+$('#comment_counter').html("<%= j(render 'public/quiz_comments/counter', quiz: @comment.quiz) %>");
+$('#comment_index').html("<%= j(render 'public/quiz_comments/index', quiz: @comment.quiz) %>");
+$('#comment_textarea').val("");

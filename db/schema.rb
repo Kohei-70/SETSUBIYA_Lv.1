@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_03_14_094141) do
+ActiveRecord::Schema.define(version: 2024_03_17_153213) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -53,9 +53,24 @@ ActiveRecord::Schema.define(version: 2024_03_14_094141) do
   end
 
   create_table "answer_records", force: :cascade do |t|
-    t.integer "quizzes_id", null: false
+    t.integer "quiz_id", null: false
     t.integer "user_id", null: false
     t.integer "answer"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.integer "quiz_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "quiz_comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "quiz_id"
+    t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -54,15 +54,8 @@
   <!--</div>-->
 <!--</template>-->
 
-<%= @random_quiz.tag %>
-<%= @random_quiz.question %>
-
 <%= form_with url:answer_quiz_path(@random_quiz), method: :post do |f| %>
-  <%= radio_button_tag 'answer', '1' %><%= @random_quiz.answer1 %><br>
-  <%= radio_button_tag 'answer', '2' %><%= @random_quiz.answer2 %><br>
-  <%= radio_button_tag 'answer', '3' %><%= @random_quiz.answer3 %><br>
-  <%= radio_button_tag 'answer', '4' %><%= @random_quiz.answer4 %><br>
-  <%= f.submit 'Submit' %>
+  <%= render 'public/quizzes/quiz', quiz: @random_quiz, f: f %>
 <% end %>
 
 

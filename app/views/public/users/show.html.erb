@@ -1,2 +1,5 @@
 <h1>Public::Users#show</h1>
 <p>Find me in app/views/public/users/show.html.erb</p>
+
+<%#= render "public/users/answer_chart", quiz: @quiz %>
+<%= link_to "ブックマークした問題を確認", quiz_bookmarks_path(current_user) %>

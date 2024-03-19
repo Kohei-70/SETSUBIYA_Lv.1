@@ -1,0 +1,3 @@
+<%= form_with url:answer_search_path(@bookmark_quiz), method: :post do |f| %>
+  <%= render 'public/quizzes/quiz', quiz: @bookmark_quiz, f: f %>
+<% end %>

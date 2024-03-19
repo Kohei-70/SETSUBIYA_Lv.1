@@ -6,4 +6,6 @@
 <!--  <%#= render 'books/index', books: @records %>-->
 <!--<%# end %>-->
 
-<h3>Searches search for "<%= @quiz_title %>"</h3>
+<h2>Searches search for "<%= @quiz_title %>"</h2>
+<%#= render 'public/quizzes/index', quizzes: @records %>
+<%= render 'public/searches/index', quizzes: @quizzes %>

@@ -1,0 +1,17 @@
+<table>
+  <tbody>
+    <% quiz.quiz_comments.each do |quiz_comment| %>
+    <tr>
+      <td><%= quiz_comment.user.name %></td>
+      <td><%= quiz_comment.comment %></td>
+      <td>
+        <% if quiz_comment.user == current_user %>
+          <%= link_to "Destroy", quiz_quiz_comment_path(quiz, quiz_comment), method: :delete, class: "btn btn-sm btn-danger float-end", remote: true %>
+        <% elsif admin_signed_in? %>
+          <%= link_to "Destroy", quiz_quiz_comment_path(quiz, quiz_comment), method: :delete, class: "btn btn-sm btn-danger float-end", remote: true %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

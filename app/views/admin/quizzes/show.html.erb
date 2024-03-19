@@ -8,7 +8,6 @@
     <div class = "col-md-6 mt-3">
       <table>
         <tbody>
-
           <tr>
             <td>タグ</td>
             <td class = "px-3"><%= @quiz.tag %></td>
@@ -59,9 +58,16 @@
 
         </tbody>
       </table>
+      
     </div>
   </div>
   <div class = "col text-center mt-3">
     <%= link_to "編集する", edit_admin_quiz_path, class: "btn btn-success" %>
+  </div>
+  <div id="comment_counter">
+   <%= render "public/quiz_comments/counter", quiz: @quiz %>
+  </div>
+  <div id="comment_index">
+   <%= render "public/quiz_comments/index", quiz: @quiz %>
   </div>
 </div>
