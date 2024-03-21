@@ -1,0 +1,10 @@
+
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user/user_status:
+        active: "有効ユーザー"
+        banned: "一時凍結"
+        inactive: "退会済み"

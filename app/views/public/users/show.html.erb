@@ -3,3 +3,5 @@
 
 <%#= render "public/users/answer_chart", quiz: @quiz %>
 <%= link_to "ブックマークした問題を確認", quiz_bookmarks_path(current_user) %>
+
+<%= link_to "ユーザー情報を編集する", edit_user_path(@user) %>

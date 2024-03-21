@@ -1,0 +1,3 @@
+<%= form_with url:answer_quiz_path(@random_quiz), method: :post do |f| %>
+  <%= render 'public/quizzes/quiz_template', quiz: @random_quiz, f: f %>
+<% end %>

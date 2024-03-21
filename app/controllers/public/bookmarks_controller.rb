@@ -25,6 +25,7 @@ class Public::BookmarksController < ApplicationController
     else
       @result = "不正解です..."
     end
+    @quiz_comment = QuizComment.new
   end
 
   def create

@@ -23,11 +23,12 @@
         <tr>
           <td>会員ステータス</td>
           <td>
-            <%= f.radio_button :is_active, :true %>
-            <%= f.label :is_active, "有効", { value: :true }  %>
+            <%#= f.radio_button :is_active, :true %>
+            <%#= f.label :is_active, "有効", { value: :true }  %>
 
-            <%= f.radio_button :is_active, :false %>
-            <%= f.label :is_active, "退会", { value: :false } %>
+            <%#= f.radio_button :is_active, :false %>
+            <%#= f.label :is_active, "退会", { value: :false } %>
+            <%= f.select :user_status, options_for_select({"有効ユーザー" => "active", "一時凍結" => "banned", "退会済み" => "inactive"}, @user.user_status) %>
           </td>
         </tr>
 

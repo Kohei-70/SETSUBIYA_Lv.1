@@ -1,9 +1,3 @@
-<p><%= @result %></p>
-<p>解説: <%= @quiz.description %></p>
-<!--<td id="bookmark_btn_<%#= @quiz.id %>">-->
-<div class=<%= "bookmark-" + @quiz.id.to_s %> >
-  <%= render "public/bookmarks/btn", quiz: @quiz %>
-</div>
-
+<%= render "public/quizzes/answer_template", result: @result, quiz: @quiz, quiz_comment: @quiz_comment %>
 <!--検索結果に戻したいが、どうパスするの？-->
-<%#= link_to "検索結果に戻る", quiz_bookmarks_path(current_user) %>
+<%= link_to "検索結果に戻る", search_path(title: @quiz_title, model: @model, method: @method) %>

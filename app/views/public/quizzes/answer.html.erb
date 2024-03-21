@@ -1,14 +1,16 @@
-<p><%= @result %></p>
-<p>解説: <%= @quiz.description %></p>
-<div class=<%= "bookmark-" + @quiz.id.to_s %> >
-  <%= render "public/bookmarks/btn", quiz: @quiz %>
-</div>
-<div id="comment_counter">
- <%= render "public/quiz_comments/counter", quiz: @quiz %>
-</div>
-<div id="comment_index">
- <%= render "public/quiz_comments/index", quiz: @quiz %>
-</div>
-<%= render "public/quiz_comments/form", quiz: @quiz, quiz_comment: @quiz_comment %>
+<!--<p><%#= @result %></p>-->
+<!--<p>解説: <%#= @quiz.description %></p>-->
+<!--<div class=<%#= "bookmark-" + @quiz.id.to_s %> >-->
+<!--  <%#= render "public/bookmarks/btn", quiz: @quiz %>-->
+<!--</div>-->
+<!--<div id="comment_counter">-->
+<!-- <%#= render "public/quiz_comments/counter", quiz: @quiz %>-->
+<!--</div>-->
+<!--<div id="comment_index">-->
+<!-- <%#= render "public/quiz_comments/index", quiz: @quiz %>-->
+<!--</div>-->
+<!--<%#= render "public/quiz_comments/form", quiz: @quiz, quiz_comment: @quiz_comment %>-->
 
-<%= link_to "次の問題", quizzes_path %>
+<%= render "public/quizzes/answer_template", result: @result, quiz: @quiz, quiz_comment: @quiz_comment %>
+
+<%= link_to "次の問題", quiz_quiz_path %>

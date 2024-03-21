@@ -8,12 +8,13 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :users, only: [:show, :edit, :update] do
       member do
-        get :withdraw_input # 退会確認画面
-        patch :withdraw_process # ステータス更新
+        get :withdraw_check # 退会確認画面
+        patch :withdraw_update # ステータス更新
       end
     end
-    resources :quizzes, only: [:index, :create] do
+    resources :quizzes, only: [:create] do
       member do
+        get 'quiz'
         post 'answer'
         get 'answer'
       end
@@ -29,7 +30,7 @@ Rails.application.routes.draw do
     end
     # resources :bookmarks, only: [:index, :show]
     get "/search", to: "searches#search"
-    resources :searches, only: [:index, :show] do
+    resources :searches, only: [:index] do
       member do
         get 'quiz'
         post 'answer'

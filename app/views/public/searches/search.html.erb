@@ -7,5 +7,4 @@
 <!--<%# end %>-->
 
 <h2>Searches search for "<%= @quiz_title %>"</h2>
-<%#= render 'public/quizzes/index', quizzes: @records %>
-<%= render 'public/searches/index', quizzes: @quizzes %>
+<%= render 'public/searches/index', quizzes: @quizzes, title: @quiz_title, model: @model, method: @method %>
