@@ -1,7 +1,7 @@
 class AnswerRecord < ApplicationRecord
   
-  # belongs_to :quiz
-  # belongs_to :user
+  belongs_to :quiz
+  belongs_to :user
   
   # def self.correct_count(user_id)
   #   where(user_id: user_id, answer: quiz.answer).count

@@ -12,7 +12,7 @@ class Quiz < ApplicationRecord
   #     Quiz.where('title LIKE ?', '%' + title + '%')
   #   end
   # end
-  
+
   def self.search_for(title, method, model)
     if model == "quiz"
       if method == 'perfect'
@@ -42,6 +42,7 @@ class Quiz < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :users, through: :bookmarks
   has_many :quiz_comments, dependent: :destroy
+  has_many :answer_records, dependent: :destroy
   # has_many :bookmarks, foreign_key: "quiz_id", dependent: :destroy
 
   def bookmarked_by?(user)
