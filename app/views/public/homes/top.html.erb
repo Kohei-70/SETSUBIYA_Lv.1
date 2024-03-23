@@ -16,7 +16,9 @@
           </div>
         </div>
       </div>
-      <%= link_to "問題に挑戦", quiz_quiz_path(@random_quiz), class: "btn btn-primary mt-4 mb-2" %>
+      <% if @random_quiz != nil %>
+        <%= link_to "問題に挑戦", quiz_quiz_path(@random_quiz), class: "btn btn-primary mt-4 mb-2" %>
+      <% end %>
       <h1 class="mt-4 mb-4 text-center">管工事施工管理技士とは</h1>
       <h2>管工事施工管理技士の概要</h2>
       <p>
