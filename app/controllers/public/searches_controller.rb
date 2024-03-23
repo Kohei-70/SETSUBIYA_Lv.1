@@ -1,4 +1,7 @@
 class Public::SearchesController < ApplicationController
+  # 権限の設定
+  before_action :authenticate_user!
+
   def index
   end
 
@@ -8,7 +11,7 @@ class Public::SearchesController < ApplicationController
     @method = params[:method]
     @quizzes = Quiz.search_for(@quiz_title, @method, @model).page(params[:page])
   end
-  
+
   def quiz
     @search_quiz = Quiz.find(params[:id])
     @model = params[:model]
@@ -30,12 +33,12 @@ class Public::SearchesController < ApplicationController
       @result = "不正解です..."
     end
     @quiz_comment = QuizComment.new
-    
+
     @model = params[:model]
     @quiz_title = params[:title]
     @method = params[:method]
     # @quizzes = Quiz.search_for(@quiz.title, @method, @model).page(params[:page])
-    
+
   end
 
 end

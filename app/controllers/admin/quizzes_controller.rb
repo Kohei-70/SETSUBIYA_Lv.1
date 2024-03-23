@@ -1,4 +1,6 @@
 class Admin::QuizzesController < ApplicationController
+  # 権限の設定
+  before_action :authenticate_admin!
 
   def index
     @quizzes = Quiz.page(params[:page]).per(10)

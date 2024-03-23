@@ -1,16 +1,27 @@
 <% if user_signed_in? %>
-  <%= form_with url: search_path, method: :get, local: true do |f| %>
-  
-    <%= f.radio_button :model, "quiz", checked: true %>
-    <%= f.label :model_quiz, "タイトルから検索" %>
-    <%= f.radio_button :model, "tag" %>
-    <%= f.label :model_tag, "タグから検索" %>
-    
-    <%= f.text_field :title %>
-    <%#= f.select :model, options_for_select({"Quiz" => "quiz", "Book" => "book"}) %>
-    <!--下でQuizモデルを指定-->
-    <%#= f.hidden_field :model, value: "quiz" %>
-    <%= f.select :method, options_for_select({"完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial"}) %>
-    <%= f.submit "検索" %>
-  <% end %>
+  <div class="input-group">
+    <%= form_with url: search_path, method: :get, local: true do |f| %>
+      <div class="form-check">
+        <%= f.radio_button :model, "quiz", checked: true, class: "form-check-input", id: "flexRadioDefault1" %>
+        <%= f.label :model_quiz, "タイトルから検索", class: "form-check-label", for: "flexRadioDefault1" %>
+      </div>
+      <div class="form-check">
+        <%= f.radio_button :model, "tag", class: "form-check-input", id: "flexRadioDefault2" %>
+        <%= f.label :model_tag, "タグから検索", class: "form-check-label", for: "flexRadioDefault2" %>
+      </div>
+      <%#= f.select :model, options_for_select({"Quiz" => "quiz", "Book" => "book"}) %>
+      <!--下でQuizモデルを指定-->
+      <%#= f.hidden_field :model, value: "quiz" %>
+      <!--<div class="input-group">-->
+      <%= f.text_field :title, class: "form-control", placeholder: "キーワードを入力" %>
+      <%= f.select :method, options_for_select({"完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial"}, class: "form-control", id: "exampleFormControlSelect1") %>
+      <div class="input-group-append">
+        <%= f.button "検索", class: "btn btn-outline-success", id: "button-addon2" do %>
+          <i class="fas fa-search"></i>
+          検索
+        <% end %>
+      </div>
+      <!--</div>-->
+    <% end %>
+  </div>
 <% end %>

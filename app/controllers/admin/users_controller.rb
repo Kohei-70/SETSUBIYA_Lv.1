@@ -1,4 +1,7 @@
 class Admin::UsersController < ApplicationController
+  # 権限の設定
+  before_action :authenticate_admin!
+
   def index
     @users = User.page(params[:page])
   end

@@ -1,4 +1,7 @@
 class Public::UsersController < ApplicationController
+  # 権限の設定
+  before_action :authenticate_user!
+
   def show
     # 参考
     @user = User.find(params[:id])
@@ -13,7 +16,7 @@ class Public::UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
   end
-  
+
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
@@ -23,10 +26,10 @@ class Public::UsersController < ApplicationController
       render :edit
     end
   end
-  
+
   def withdraw_check
   end
-  
+
   def withdraw_update
     user = current_user
     user.update(user_status: :inactive)
