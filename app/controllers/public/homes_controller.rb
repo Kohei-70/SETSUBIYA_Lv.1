@@ -4,7 +4,6 @@ class Public::HomesController < ApplicationController
       @random_quiz = Quiz.order("RANDOM()").first
     else
       @random_quiz = Quiz.order("RAND()").first
-      
     end
   end
 end

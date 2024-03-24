@@ -3,8 +3,13 @@ class Public::QuizzesController < ApplicationController
   before_action :authenticate_user!
 
   def quiz
-    @random_quiz = Quiz.order("RANDOM()").first
-    # @random_problem = Problem.order("RANDOM()").first # 問題をランダムな順番で取得
+    # 問題をランダムな順番で取得
+    # @random_quiz = Quiz.order("RANDOM()").first
+    if Rails.env.development?
+      @random_quiz = Quiz.order("RANDOM()").first
+    else
+      @random_quiz = Quiz.order("RAND()").first
+    end
   end
 
   def show
