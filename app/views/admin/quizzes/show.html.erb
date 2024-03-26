@@ -1,73 +1,63 @@
-<div class = "container">
-  <div class = "row">
-    <div class = "col-md-8 mx-auto">
-      <h5>問題詳細</h5>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h4 class="my-4">問題詳細</h4>
+      <div class="d-flex align-items-center">
+        <table class="table table-bordrless">
+          <tbody>
+            <tr>
+              <td width="30%">タグ</td>
+              <td width="70%"><%= @quiz.tag %></td>
+            </tr>
+            <tr>
+              <td>タイトル</td>
+              <td><%= @quiz.title %></td>
+            </tr>
+            <tr>
+              <td>問題</td>
+              <td><%= @quiz.question %></td>
+            </tr>
+            <tr>
+              <td>選択肢1</td>
+              <td><%= @quiz.answer1 %></td>
+            </tr>
+            <tr>
+              <td>選択肢2</td>
+              <td><%= @quiz.answer2 %></td>
+            </tr>
+            <tr>
+              <td>選択肢3</td>
+              <td><%= @quiz.answer3 %></td>
+            </tr>
+            <tr>
+              <td>選択肢4</td>
+              <td><%= @quiz.answer4 %></td>
+            </tr>
+            <tr>
+              <td>正解</td>
+              <td><%= @quiz.answer %></td>
+            </tr>
+            <tr>
+              <td>解説</td>
+              <td><%= @quiz.description %></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td align="right"><%= link_to "編集する", edit_admin_quiz_path, class: "btn btn-success" %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-  <div class = "row mt-3">
-    <div class = "col-md-6 mt-3">
-      <table>
-        <tbody>
-          <tr>
-            <td>タグ</td>
-            <td class = "px-3"><%= @quiz.tag %></td>
-          </tr>
-          <tr>
-            <td>タイトル</td>
-            <td class = "px-3"><%= @quiz.title %></td>
-          </tr>
-          <tr>
-            <td>問題</td>
-            <td class = "px-3"><%= @quiz.question %></td>
-          </tr>
-          <tr>
-            <td>選択肢1</td>
-            <td class = "px-3"><%= @quiz.answer1 %></td>
-          </tr>
-          <tr>
-            <td>選択肢2</td>
-            <td class = "px-3"><%= @quiz.answer2 %></td>
-          </tr>
-          <tr>
-            <td>選択肢3</td>
-            <td class = "px-3"><%= @quiz.answer3 %></td>
-          </tr>
-          <tr>
-            <td>選択肢4</td>
-            <td class = "px-3"><%= @quiz.answer4 %></td>
-          </tr>
-          <tr>
-            <td>正解</td>
-            <td class = "px-3"><%= @quiz.answer %></td>
-          </tr>
-          <tr>
-            <td>解説</td>
-            <td class = "px-3"><%= @quiz.description %></td>
-          </tr>
-
-          <!--<tr>-->
-          <!--  <td>商品ステータス</td>-->
-          <!--  <td class = "px-3">-->
-          <!--    <%# if @item.is_active == true %>-->
-          <!--      <span class = "text-success"><strong>販売中</strong></span>-->
-          <!--    <%# else %>-->
-          <!--      <span class = "text-muted"><strong>販売停止中</strong></span>-->
-          <!--    <%# end %>-->
-          <!--  </td>-->
-          <!--</tr>-->
-
-        </tbody>
-      </table>
-      
+  <div class="row">
+    <div class="col">
+      <div id="comment_index">
+        <%= render "public/quiz_comments/index", quiz: @quiz %>
+      </div>
+      <div id="comment_counter">
+        <%= render "public/quiz_comments/counter", quiz: @quiz %>
+      </div>
     </div>
-  </div>
-  <div class = "col text-center mt-3">
-    <%= link_to "編集する", edit_admin_quiz_path, class: "btn btn-success" %>
-  </div>
-  <div id="comment_counter">
-   <%= render "public/quiz_comments/counter", quiz: @quiz %>
-  </div>
-  <div id="comment_index">
-   <%= render "public/quiz_comments/index", quiz: @quiz %>
   </div>
 </div>

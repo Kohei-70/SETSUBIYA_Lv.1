@@ -1,19 +1,15 @@
-<div class="row">
-  <div class="col-md-8">
-    <p><%= result %></p>
-    <p>解説: <%= quiz.description %></p>
-    <div class=<%= "bookmark-" + quiz.id.to_s %> >
-      <%= render "public/bookmarks/btn", quiz: quiz %>
-    </div>
-    <div id="comment_counter">
-     <%= render "public/quiz_comments/counter", quiz: quiz %>
-    </div>
-    <div id="comment_index">
-     <%= render "public/quiz_comments/index", quiz: quiz %>
-    </div>
-    <%= render "public/quiz_comments/form", quiz: quiz, quiz_comment: quiz_comment %>
+<%= image_tag result, class: 'card-img-top', style: 'width: 300px; height: 300px; object-fit: cover;' %>
+<p>解説: <%= quiz.description %></p>
+<div class=<%= "bookmark-" + quiz.id.to_s %> >
+  <%= render "public/bookmarks/btn", quiz: quiz %>
+</div>
+<div id="comment_counter">
+ <%= render "public/quiz_comments/counter", quiz: quiz %>
+</div>
+<div id="comment_index">
+ <%= render "public/quiz_comments/index", quiz: quiz %>
+</div>
+<%= render "public/quiz_comments/form", quiz: quiz, quiz_comment: quiz_comment %>
 
     <!--<p>正答率: <%#= correct_rate(current_user) %>%</p>-->
     <!--<p>正解数: <%#= current_user.correct_answers_count %></p>-->
-  </div>
-</div>

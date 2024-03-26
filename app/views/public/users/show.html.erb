@@ -1,7 +1,21 @@
-<h1>Public::Users#show</h1>
-<p>Find me in app/views/public/users/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>マイページ</h1>
+      <% if @random_quiz != nil %>
+        <%= link_to "問題に挑戦", quiz_quiz_path(@random_quiz), class: "btn btn-primary mt-4 mb-2" %>
+      <% end %>
+      <%= link_to "ブックマークした問題を確認", quiz_bookmarks_path(current_user) %>
+      <%= link_to "ユーザー情報を編集する", edit_user_path(@user) %>
+      <%= @user.total_answer_parcent %>
+      <%= render "public/users/answer_chart", user: @user %>
 
-<%#= render "public/users/answer_chart", quiz: @quiz %>
-<%= link_to "ブックマークした問題を確認", quiz_bookmarks_path(current_user) %>
+      <%# 日付を日本時刻にする %>
+      <%= Time.now.in_time_zone('Asia/Tokyo') %>
 
-<%= link_to "ユーザー情報を編集する", edit_user_path(@user) %>
+      <h3>正答率ランキング</h3>
+      <%= @ranking.inspect %>
+
+    </div>
+  </div>
+</div>

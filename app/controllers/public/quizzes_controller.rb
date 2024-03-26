@@ -4,7 +4,6 @@ class Public::QuizzesController < ApplicationController
 
   def quiz
     # 問題をランダムな順番で取得
-    # @random_quiz = Quiz.order("RANDOM()").first
     if Rails.env.development?
       @random_quiz = Quiz.order("RANDOM()").first
     else
@@ -28,9 +27,9 @@ class Public::QuizzesController < ApplicationController
     @answer_record.save
 
     if @answer_record.answer == @quiz.answer
-      @result = "正解です！"
+      @result = 'correct.jpg'
     else
-      @result = "不正解です..."
+      @result = 'incorrect.jpg'
     end
 
     @quiz_comment = QuizComment.new

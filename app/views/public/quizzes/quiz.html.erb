@@ -1,3 +1,9 @@
-<%= form_with url:answer_quiz_path(@random_quiz), method: :post do |f| %>
-  <%= render 'public/quizzes/quiz_template', quiz: @random_quiz, f: f %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= form_with url:answer_quiz_path(@random_quiz), method: :post do |f| %>
+        <%= render 'public/quizzes/quiz_template', quiz: @random_quiz, f: f %>
+      <% end %>
+    </div>
+  </div>
+</div>

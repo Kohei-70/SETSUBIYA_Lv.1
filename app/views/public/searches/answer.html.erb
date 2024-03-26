@@ -1,3 +1,8 @@
-<%= render "public/quizzes/answer_template", result: @result, quiz: @quiz, quiz_comment: @quiz_comment %>
-<!--検索結果に戻したいが、どうパスするの？-->
-<%= link_to "検索結果に戻る", search_path(title: @quiz_title, model: @model, method: @method) %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= render "public/quizzes/answer_template", result: @result, quiz: @quiz, quiz_comment: @quiz_comment %>
+      <%= link_to "検索結果に戻る", search_path(title: @quiz_title, model: @model, method: @method) %>
+    </div>
+  </div>
+</div>

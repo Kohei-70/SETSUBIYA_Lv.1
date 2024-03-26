@@ -1,3 +1,9 @@
-<%= form_with url:answer_search_path(@search_quiz), method: :post do |f| %>
-  <%= render 'public/quizzes/quiz_template', quiz: @search_quiz, f: f, title: @quiz_title, model: @model, method: @method %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= form_with url:answer_search_path(@search_quiz), method: :post do |f| %>
+        <%= render 'public/quizzes/quiz_template', quiz: @search_quiz, f: f, title: @quiz_title, model: @model, method: @method %>
+      <% end %>
+    </div>
+  </div>
+</div>

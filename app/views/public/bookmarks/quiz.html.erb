@@ -1,3 +1,9 @@
-<%= form_with url:answer_quiz_bookmark_path(@bookmark_quiz), method: :post do |f| %>
-  <%= render 'public/quizzes/quiz_template', quiz: @bookmark_quiz, f: f %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= form_with url:answer_quiz_bookmark_path(@bookmark_quiz), method: :post do |f| %>
+        <%= render 'public/quizzes/quiz_template', quiz: @bookmark_quiz, f: f %>
+      <% end %>
+    </div>
+  </div>
+</div>

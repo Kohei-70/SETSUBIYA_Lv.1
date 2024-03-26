@@ -1,6 +1,12 @@
 <table>
+  <thead>
+    <tr>
+      <th>ユーザー名</th>
+      <th>コメント</th>
+    </tr>
+  </thead>
+  <% quiz.quiz_comments.each do |quiz_comment| %>
   <tbody>
-    <% quiz.quiz_comments.each do |quiz_comment| %>
     <tr>
       <td><%= quiz_comment.user.name %></td>
       <td><%= quiz_comment.comment %></td>
@@ -12,6 +18,6 @@
         <% end %>
       </td>
     </tr>
-    <% end %>
   </tbody>
+  <% end %>
 </table>

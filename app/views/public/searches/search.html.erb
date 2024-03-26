@@ -1,10 +1,8 @@
-<!--<%# if @model == 'user' %>-->
-<!--    <h3>Users search for "<%#= @content %>"</h3>-->
-<!--  <%#= render 'users/index', users: @records %>-->
-<!--<%# elsif @model == 'book' %>-->
-<!--    <h3>Books search for "<%#= @content %>"</h3>-->
-<!--  <%#= render 'books/index', books: @records %>-->
-<!--<%# end %>-->
-
-<h2>Searches search for "<%= @quiz_title %>"</h2>
-<%= render 'public/searches/index', quizzes: @quizzes, title: @quiz_title, model: @model, method: @method %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h4 class="my-4">"<%= @quiz_title %>"の検索結果</h4>
+      <%= render 'public/searches/index', quizzes: @quizzes, title: @quiz_title, model: @model, method: @method %>
+    </div>
+  </div>
+</div>

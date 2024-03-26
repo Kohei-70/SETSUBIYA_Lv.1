@@ -1,9 +1,11 @@
-<div class = "container">
+<div class = "container" style="padding-bottom: 60px;">
   <div class = "row">
-    <div class = "col-md-8 mx-auto">
-      <h5>問題編集</h5>
+    <div class = "col-md-10 mx-auto">
+      <h4 class = "my-4">問題編集</h4>
     </div>
-    <div class = "col-md-6 mx-auto">
+  </div>
+  <div class = "row">
+    <div class = "col-md-10 mx-auto">
       <%= form_with model: @quiz, url: admin_quiz_path(@quiz) do |f| %>
       <div class = "form-group">
 
@@ -21,7 +23,7 @@
             <%= f.label :タイトル %>
           </div>
           <div class = "col-9">
-            <%= f.text_field :title, class: "form-control title" %>
+            <%= f.text_field :title, class: "form-control title", rows: 5 %>
           </div>
         </div>
 
@@ -30,7 +32,7 @@
             <%= f.label :問題 %>
           </div>
           <div class = "col-9">
-            <%= f.text_area :question, class: "form-control question" %>
+            <%= f.text_area :question, class: "form-control question", rows: 5 %>
           </div>
         </div>
 
@@ -39,7 +41,7 @@
             <%= f.label :選択肢1 %>
           </div>
           <div class = "col-9">
-            <%= f.text_area :answer1, class: "form-control answer1" %>
+            <%= f.text_area :answer1, class: "form-control answer1", rows: 2 %>
           </div>
         </div>
 
@@ -48,7 +50,7 @@
             <%= f.label :選択肢2 %>
           </div>
           <div class = "col-9">
-            <%= f.text_area :answer2, class: "form-control answer2" %>
+            <%= f.text_area :answer2, class: "form-control answer2", rows: 2 %>
           </div>
         </div>
 
@@ -57,7 +59,7 @@
             <%= f.label :選択肢3 %>
           </div>
           <div class = "col-9">
-            <%= f.text_area :answer3, class: "form-control answer3" %>
+            <%= f.text_area :answer3, class: "form-control answer3", rows: 2 %>
           </div>
         </div>
 
@@ -66,7 +68,7 @@
             <%= f.label :選択肢4 %>
           </div>
           <div class = "col-9">
-            <%= f.text_area :answer4, class: "form-control answer4" %>
+            <%= f.text_area :answer4, class: "form-control answer4", rows: 2 %>
           </div>
         </div>
 
@@ -84,14 +86,13 @@
             <%= f.label :解説 %>
           </div>
           <div class = "col-9">
-            <%= f.text_area :description, class: "form-control description" %>
+            <%= f.text_area :description, class: "form-control description", rows: 5 %>
           </div>
         </div>
 
         <div class = "actions text-center mt-3">
             <%= f.submit "変更を保存", class: "btn btn-success" %>
         </div>
-
       </div>
     </div>
     <% end %>
