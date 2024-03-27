@@ -1,5 +1,5 @@
 <%= image_tag result, class: 'card-img-top', style: 'width: 300px; height: 300px; object-fit: cover;' %>
-<p>解説: <%= quiz.description %></p>
+<p>【解説】<%= quiz.description %></p>
 <div class=<%= "bookmark-" + quiz.id.to_s %> >
   <%= render "public/bookmarks/btn", quiz: quiz %>
 </div>

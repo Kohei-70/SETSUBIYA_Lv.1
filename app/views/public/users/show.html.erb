@@ -1,13 +1,17 @@
 <div class="container">
   <div class="row">
-    <div class="col">
-      <h1>マイページ</h1>
-      <% if @random_quiz != nil %>
-        <%= link_to "問題に挑戦", quiz_quiz_path(@random_quiz), class: "btn btn-primary mt-4 mb-2" %>
+    <div class="col-md-9">
+      <h2 class="my-4">マイページ</h2>
+      <%= link_to quiz_quiz_path(@random_quiz), class: "btn btn-primary btn-lg btn-block" do %>
+        <i class="fa-solid fa-pen"></i> 問題に挑戦
       <% end %>
-      <%= link_to "ブックマークした問題を確認", quiz_bookmarks_path(current_user) %>
-      <%= link_to "ユーザー情報を編集する", edit_user_path(@user) %>
-      <%= @user.total_answer_parcent %>
+      <%= @user.total_quiz_count %>,
+      <%= @user.total_answer_count %>,
+      <%= @user.total_answer_parcent %>,
+      <%= @user.day_quiz_count(Time.now) %>,
+      <%= @user.day_answer_count(Time.now) %>,
+      <%= @user.day_answer_parcent(Time.now) %>,
+      <h4 class="my-3">最近の成績</h4>
       <%= render "public/users/answer_chart", user: @user %>
 
       <%# 日付を日本時刻にする %>
@@ -15,7 +19,17 @@
 
       <h3>正答率ランキング</h3>
       <%= @ranking.inspect %>
-
+    </div>
+    <div class="col-md-3 my-4">
+      <div class="row">
+        <%= render "public/searches/form" %>
+        <%= link_to quiz_bookmarks_path(current_user), class: "btn btn-info btn-block" do %>
+          <i class="fa-solid fa-bookmark"></i> ブックマークした</br>問題を確認
+        <% end %>
+        <%= link_to edit_user_path(@user), class: "btn btn-secondary btn-block" do %>
+          <i class="fa-solid fa-user-gear"></i> 登録情報編集
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

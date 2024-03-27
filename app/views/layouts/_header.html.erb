@@ -34,24 +34,32 @@
             <div class="navbar-text text-light">ようこそ、<%= current_user.name %>さん！</div>
             <li>
               <button type="button" class="btn btn-sm btn-outline-secondary ml-3">
-                <%= link_to "マイページ", user_path(current_user.id), class: 'nav-link text-light' %>
+                <%= link_to user_path(current_user.id), class: "nav-link text-light" do %>
+                  <i class="fa-solid fa-user"></i> マイページ
+                <% end %>
               </button>
             </li>
             <li>
               <button type="button" class="btn btn-sm btn-outline-secondary ml-3">
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-light' %>
+                <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light' do %>
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i> ログアウト
+                <% end %>
               </button>
             </li>
           <% else %>
             <!--adminでもuserでもログインしていない時に表示するheaderのメニューを記載-->
             <li>
               <button type="button" class="btn btn-sm btn-outline-secondary ml-3">
-                <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-light' %>
+                <%= link_to new_user_registration_path, class: 'nav-link text-light' do %>
+                  <i class="fa-solid fa-user-plus"></i> 新規登録
+                <% end %>
               </button>
             </li>
             <li>
               <button type="button" class="btn btn-sm btn-outline-secondary ml-3">
-                <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-light' %>
+                <%= link_to new_user_session_path, class: 'nav-link text-light' do %>
+                  <i class="fa-solid fa-arrow-right-to-bracket"></i> ログイン
+                <% end %>
               </button>
             </li>
           <% end %>

@@ -11,13 +11,6 @@ class Public::UsersController < ApplicationController
       @random_quiz = Quiz.order("RAND()").first
     end
 
-    # @quizzes = @user.quizzes
-    # @quiz = Quiz.new
-    # @today_quiz =  @quizzes.created_today
-    # @yesterday_quiz = @quizzes.created_yesterday
-    # @this_week_quiz = @quizzes.created_this_week
-    # @last_week_quiz = @quizzes.created_last_week
-
     @ranking = []
 
     User.where(user_status: 0).each do |user|
