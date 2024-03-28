@@ -1,23 +1,28 @@
-<table>
+<table class="table-hover" width="100%">
   <thead>
     <tr>
-      <th>ユーザー名</th>
-      <th>コメント</th>
+      <th width="20%">【ユーザー名】</th>
+      <th width="60%">【コメント】</th>
+      <th width="20%">
+        <div id="comment_counter">
+          <%= render "public/quiz_comments/counter", quiz: quiz %>
+        </div>
+      </th>
     </tr>
   </thead>
   <% quiz.quiz_comments.each do |quiz_comment| %>
-  <tbody>
-    <tr>
-      <td>ユーザー名:<%= quiz_comment.user.name %></td>
-      <td>コメント:<%= quiz_comment.comment %></td>
-      <td>
-        <% if quiz_comment.user == current_user %>
-          <%= link_to "Destroy", quiz_quiz_comment_path(quiz, quiz_comment), method: :delete, class: "btn btn-sm btn-danger float-end", remote: true %>
-        <% elsif admin_signed_in? %>
-          <%= link_to "Destroy", quiz_quiz_comment_path(quiz, quiz_comment), method: :delete, class: "btn btn-sm btn-danger float-end", remote: true %>
-        <% end %>
-      </td>
-    </tr>
-  </tbody>
+    <tbody>
+      <tr>
+        <td><%= quiz_comment.user.name %></td>
+        <td><%= quiz_comment.comment %></td>
+        <td>
+          <% if quiz_comment.user == current_user %>
+            <%= link_to "Destroy", quiz_quiz_comment_path(quiz, quiz_comment), method: :delete, class: "btn btn-sm btn-danger float-end", remote: true %>
+          <% elsif admin_signed_in? %>
+            <%= link_to "Destroy", quiz_quiz_comment_path(quiz, quiz_comment), method: :delete, class: "btn btn-sm btn-danger float-end", remote: true %>
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
   <% end %>
 </table>

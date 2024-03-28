@@ -1,35 +1,40 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-9">
-      <h2 class="my-4">マイページ</h2>
-      <%= link_to quiz_quiz_path(@random_quiz), class: "btn btn-primary btn-lg btn-block" do %>
-        <i class="fa-solid fa-pen"></i> 問題に挑戦
-      <% end %>
-      <%= @user.total_quiz_count %>,
-      <%= @user.total_answer_count %>,
-      <%= @user.total_answer_parcent %>,
-      <%= @user.day_quiz_count(Time.now) %>,
-      <%= @user.day_answer_count(Time.now) %>,
-      <%= @user.day_answer_parcent(Time.now) %>,
-      <h4 class="my-3">最近の成績</h4>
+  <div class="row justify-content-center">
+    <div class="col-md-8 mb-4">
+      <h2 class="my-4"><i class="fa-solid fa-user"></i>&nbsp;マイページ</h2>
+      <h4 class="my-2"><i class="fa-solid fa-chart-line"></i>&nbsp;最近の成績</h4>
       <%= render "public/users/answer_chart", user: @user %>
-
-      <%# 日付を日本時刻にする %>
-      <%= Time.now.in_time_zone('Asia/Tokyo') %>
-
-      <h3>正答率ランキング</h3>
-      <%= @ranking.inspect %>
+      <h4 class="my-3"><i class="fas fa-search"></i>&nbsp;問題検索</h4>
+      <%= render "public/searches/form" %>
     </div>
-    <div class="col-md-3 my-4">
+    <div class="col-md-3 mt-4">
       <div class="row">
-        <%= render "public/searches/form" %>
+        <%= link_to quiz_quiz_path(@random_quiz), class: "btn btn-primary btn-lg btn-block" do %>
+          <i class="fa-solid fa-pen"></i>&nbsp;問題に挑戦
+        <% end %>
         <%= link_to quiz_bookmarks_path(current_user), class: "btn btn-info btn-block" do %>
-          <i class="fa-solid fa-bookmark"></i> ブックマークした</br>問題を確認
+          <i class="fa-solid fa-bookmark"></i>&nbsp;ブックマークした<br>問題を確認
         <% end %>
         <%= link_to edit_user_path(@user), class: "btn btn-secondary btn-block" do %>
-          <i class="fa-solid fa-user-gear"></i> 登録情報編集
+          <i class="fa-solid fa-user-gear"></i>&nbsp;登録情報編集
         <% end %>
       </div>
     </div>
   </div>
 </div>
+
+<!--データ確認用-->
+<%#= @user.total_quiz_count %>
+<%#= @user.total_answer_count %>
+<%#= @user.total_answer_parcent %>
+<%#= @user.day_quiz_count(Time.now) %>
+<%#= @user.day_answer_count(Time.now) %>
+<%#= @user.day_answer_parcent(Time.now) %>
+
+<!--余裕があれば導入したい-->
+<!--正答率ランキング-->
+<!--<h3>正答率ランキング</h3>-->
+<!--<%#= @ranking.inspect %>-->
+<!--時間を日本に調整-->
+<%# 日付を日本時刻にする %>
+<%#= Time.now.in_time_zone('Asia/Tokyo') %>

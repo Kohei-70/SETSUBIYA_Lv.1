@@ -2,9 +2,6 @@ class Public::SearchesController < ApplicationController
   # 権限の設定
   before_action :authenticate_user!
 
-  def index
-  end
-
   def search
     @model = params[:model]
     @quiz_title = params[:title]
@@ -27,18 +24,17 @@ class Public::SearchesController < ApplicationController
     @answer_record.user_id = current_user.id
     @answer_record.answer = user_answer.to_i
     @answer_record.save
-    if @answer_record.answer == @quiz.answer
-      @result = "正解です！"
-    else
-      @result = "不正解です..."
-    end
-    @quiz_comment = QuizComment.new
 
+    if @answer_record.answer == @quiz.answer
+      @result = 'correct.svg'
+    else
+      @result = 'incorrect.svg'
+    end
+
+    @quiz_comment = QuizComment.new
     @model = params[:model]
     @quiz_title = params[:title]
     @method = params[:method]
-    # @quizzes = Quiz.search_for(@quiz.title, @method, @model).page(params[:page])
-
   end
 
 end

@@ -1,19 +1,17 @@
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <h4 class="my-5">ログイン</h4>
+  <div class="row justify-content-center">
+    <div class="col-md-8 my-5">
+      <h4 class="my-4">ログイン</h4>
       <h6>会員の方はこちらからログイン</h6>
       <%= form_with model: @user, url: user_session_path do |f| %>
       <table class="table table-borderless">
         <tr>
           <td>メールアドレス</td>
           <td><%= f.text_field :email, autofocus: true, autocomplete: "email" %></td>
-          <td></td>
         </tr>
         <tr>
           <td>パスワード</td>
           <td><%= f.password_field :password, autocomplete: "current-password" %></td>
-          <td></td>
         </tr>
         <tr>
           <td></td>
@@ -21,10 +19,16 @@
         </tr>
       </table>
       <% end %>
-      <h4 class="my-5">会員登録がお済みでない方</h4>
+      <h4 class="my-4">会員登録がお済みでない方</h4>
       <table>
         <tr>
           <td><%= link_to "こちら", new_user_registration_path %>　から新規登録を行ってください。</td>
+        </tr>
+      </table>
+      <h4 class="my-4">管理者の方</h4>
+      <table>
+        <tr>
+          <td><%= link_to "こちら", new_admin_session_path %>　からログインしてください。</td>
         </tr>
       </table>
     </div>

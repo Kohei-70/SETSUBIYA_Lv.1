@@ -7,13 +7,13 @@
     </tr>
   </thead>
   <tbody>
-  <% @quizzes.each do |quiz| %>
-    <tr>
-      <td><%= quiz.id %></td>
-      <td><%= quiz.tag %></td>
-      <td><%= link_to quiz.title, quiz_search_path(quiz, title: @quiz_title, model: @model, method: @method) %></td>
-    </tr>
-  <% end %>
-  <%= paginate @quizzes %>
+    <% @quizzes.each do |quiz| %>
+      <tr>
+        <td><%= quiz.id %></td>
+        <td><%= quiz.tag %></td>
+        <td><%= link_to quiz.title, quiz_search_path(quiz, title: @quiz_title, model: @model, method: @method) %></td>
+      </tr>
+    <% end %>
+    <%= paginate @quizzes %>
   </tbody>
 </table>

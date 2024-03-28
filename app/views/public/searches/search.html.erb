@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row">
-    <div class="col">
+  <div class="row justify-content-center">
+    <div class="col-md-10 mb-4">
       <h4 class="my-4">"<%= @quiz_title %>"の検索結果</h4>
       <%= render 'public/searches/index', quizzes: @quizzes, title: @quiz_title, model: @model, method: @method %>
     </div>

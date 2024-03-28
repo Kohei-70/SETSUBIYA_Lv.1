@@ -23,14 +23,14 @@
           </tr>
         </thead>
         <% @quizzes.each do |quiz| %>
-        <tbody>
-          <tr>
-            <td><%= quiz.id %></td>
-            <td><%= quiz.tag %></td>
-            <td><%= link_to quiz.title, admin_quiz_path(quiz) %></td>
-          </tr>
+          <tbody>
+            <tr>
+              <td><%= quiz.id %></td>
+              <td><%= quiz.tag %></td>
+              <td><%= link_to quiz.title, admin_quiz_path(quiz) %></td>
+            </tr>
+          </tbody>
         <% end %>
-        </tbody>
       </table>
       <div class = "col-md-9 d-flex justify-content-center">
         <%= paginate @quizzes %>

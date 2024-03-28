@@ -1,11 +1,6 @@
 class Public::BookmarksController < ApplicationController
   def index
-    #bookmarks = Bookmark.where(user_id: current_user.id).pluck(:quiz_id)
-    # @bookmark_quizzes = Quiz.find(bookmarks)
     @bookmark_quizzes = current_user.quizzes.page(params[:page])
-  end
-
-  def show
   end
 
   def quiz
@@ -21,9 +16,9 @@ class Public::BookmarksController < ApplicationController
     @answer_record.answer = user_answer.to_i
     @answer_record.save
     if @answer_record.answer == @quiz.answer
-      @result = "正解です！"
+      @result = 'correct.svg'
     else
-      @result = "不正解です..."
+      @result = 'incorrect.svg'
     end
     @quiz_comment = QuizComment.new
   end

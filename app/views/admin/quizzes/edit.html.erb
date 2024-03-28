@@ -7,94 +7,84 @@
   <div class = "row">
     <div class = "col-md-10 mx-auto">
       <%= form_with model: @quiz, url: admin_quiz_path(@quiz) do |f| %>
-      <div class = "form-group">
-
-        <div class = "row mt-2">
-          <div class = "col-3">
-            <%= f.label :タグ %>
+        <div class = "form-group">
+          <div class = "row mt-2">
+            <div class = "col-3">
+              <%= f.label :タグ %>
+            </div>
+            <div class = "col-9">
+              <%= f.text_field :tag, class: "form-control tag" %>
+            </div>
           </div>
-          <div class = "col-9">
-            <%= f.text_field :tag, class: "form-control tag" %>
+          <div class = "row mt-2">
+            <div class = "col-3">
+              <%= f.label :タイトル %>
+            </div>
+            <div class = "col-9">
+              <%= f.text_field :title, class: "form-control title", rows: 5 %>
+            </div>
           </div>
-        </div>
-
-        <div class = "row mt-2">
-          <div class = "col-3">
-            <%= f.label :タイトル %>
+          <div class = "row mt-2">
+            <div class = "col-3">
+              <%= f.label :問題 %>
+            </div>
+            <div class = "col-9">
+              <%= f.text_area :question, class: "form-control question", rows: 5 %>
+            </div>
           </div>
-          <div class = "col-9">
-            <%= f.text_field :title, class: "form-control title", rows: 5 %>
+          <div class = "row mt-2">
+            <div class = "col-3">
+              <%= f.label :選択肢1 %>
+            </div>
+            <div class = "col-9">
+              <%= f.text_area :answer1, class: "form-control answer1", rows: 2 %>
+            </div>
           </div>
-        </div>
-
-        <div class = "row mt-2">
-          <div class = "col-3">
-            <%= f.label :問題 %>
+          <div class = "row mt-2">
+            <div class = "col-3">
+              <%= f.label :選択肢2 %>
+            </div>
+            <div class = "col-9">
+              <%= f.text_area :answer2, class: "form-control answer2", rows: 2 %>
+            </div>
           </div>
-          <div class = "col-9">
-            <%= f.text_area :question, class: "form-control question", rows: 5 %>
+          <div class = "row mt-2">
+            <div class = "col-3">
+              <%= f.label :選択肢3 %>
+            </div>
+            <div class = "col-9">
+              <%= f.text_area :answer3, class: "form-control answer3", rows: 2 %>
+            </div>
           </div>
-        </div>
-
-        <div class = "row mt-2">
-          <div class = "col-3">
-            <%= f.label :選択肢1 %>
+          <div class = "row mt-2">
+            <div class = "col-3">
+              <%= f.label :選択肢4 %>
+            </div>
+            <div class = "col-9">
+              <%= f.text_area :answer4, class: "form-control answer4", rows: 2 %>
+            </div>
           </div>
-          <div class = "col-9">
-            <%= f.text_area :answer1, class: "form-control answer1", rows: 2 %>
+          <div class = "row mt-2">
+            <div class = "col-3">
+              <%= f.label :正解 %>
+            </div>
+            <div class = "col-9">
+              <%= f.collection_select :answer, [1,2,3,4], :to_s, :to_s, include_blank: "選択して下さい" %>
+            </div>
           </div>
-        </div>
-
-        <div class = "row mt-2">
-          <div class = "col-3">
-            <%= f.label :選択肢2 %>
+          <div class = "row mt-2">
+            <div class = "col-3">
+              <%= f.label :解説 %>
+            </div>
+            <div class = "col-9">
+              <%= f.text_area :description, class: "form-control description", rows: 5 %>
+            </div>
           </div>
-          <div class = "col-9">
-            <%= f.text_area :answer2, class: "form-control answer2", rows: 2 %>
-          </div>
-        </div>
-
-        <div class = "row mt-2">
-          <div class = "col-3">
-            <%= f.label :選択肢3 %>
-          </div>
-          <div class = "col-9">
-            <%= f.text_area :answer3, class: "form-control answer3", rows: 2 %>
-          </div>
-        </div>
-
-        <div class = "row mt-2">
-          <div class = "col-3">
-            <%= f.label :選択肢4 %>
-          </div>
-          <div class = "col-9">
-            <%= f.text_area :answer4, class: "form-control answer4", rows: 2 %>
-          </div>
-        </div>
-
-        <div class = "row mt-2">
-          <div class = "col-3">
-            <%= f.label :正解 %>
-          </div>
-          <div class = "col-9">
-            <%= f.collection_select :answer, [1,2,3,4], :to_s, :to_s, include_blank: "選択して下さい" %>
-          </div>
-        </div>
-
-        <div class = "row mt-2">
-          <div class = "col-3">
-            <%= f.label :解説 %>
-          </div>
-          <div class = "col-9">
-            <%= f.text_area :description, class: "form-control description", rows: 5 %>
+          <div class = "actions text-center mt-3">
+              <%= f.submit "変更を保存", class: "btn btn-success" %>
           </div>
         </div>
-
-        <div class = "actions text-center mt-3">
-            <%= f.submit "変更を保存", class: "btn btn-success" %>
-        </div>
-      </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
 </div>

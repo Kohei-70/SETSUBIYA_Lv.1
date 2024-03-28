@@ -3,29 +3,12 @@ class Public::UsersController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    # 参考
     @user = User.find(params[:id])
     if Rails.env.development?
       @random_quiz = Quiz.order("RANDOM()").first
     else
       @random_quiz = Quiz.order("RAND()").first
     end
-
-    @ranking = []
-
-    User.where(user_status: 0).each do |user|
-      answer_count = user.answer_records.joins(:quiz).where("answer_records.answer=quizzes.answer").count
-      quiz_count = user.answer_records.count
-      per = 0
-      unless (quiz_count <= 0)
-        par = ((answer_count.to_f / quiz_count.to_f).to_f * 100).round
-      end
-      # if par.nil?
-        @ranking << [per, user.name, user.id]
-      # end
-    end
-
-    @ranking.sort_by! {|x| x[0] }
   end
 
   def edit
@@ -59,3 +42,19 @@ class Public::UsersController < ApplicationController
     params.require(:user).permit(:name, :email)
   end
 end
+
+# 余裕があれば導入したい機能
+# ランキング機能
+# @ranking = []
+# User.where(user_status: 0).each do |user|
+#   answer_count = user.answer_records.joins(:quiz).where("answer_records.answer=quizzes.answer").count
+#   quiz_count = user.answer_records.count
+#   per = 0
+#   unless (quiz_count <= 0)
+#     par = ((answer_count.to_f / quiz_count.to_f).to_f * 100).round
+#   end
+#   # if par.nil?
+#     @ranking << [per, user.name, user.id]
+#   # end
+# end
+# @ranking.sort_by! {|x| x[0] }

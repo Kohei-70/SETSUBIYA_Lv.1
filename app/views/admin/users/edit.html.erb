@@ -3,31 +3,31 @@
     <div class="col">
       <h4 class="my-4"><%= @user.name %>さんの会員情報編集</h4>
       <%= form_with model: @user, url: admin_user_path, method: :patch do |f| %>
-      <table class="table table-borderless">
-        <tr>
-          <td>会員ID</td>
-          <td><%= @user.id %></td>
-        </tr>
-        <tr>
-          <td>ユーザー名</td>
-          <td><%= f.text_field :name, autofocus: true, autocomplete: "username" %></td>
-        </tr>
-        <tr>
-          <td>メールアドレス</td>
-          <td><%= f.text_field :email, autofocus: true, autocomplete: "email" %></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>会員ステータス</td>
-          <td>
-            <%= f.select :user_status, options_for_select({"有効ユーザー" => "active", "一時凍結" => "banned", "退会済み" => "inactive"}, @user.user_status) %>
-          </td>
-        </tr>
-        <tr>
-          <td></td>
-          <td><%= f.submit "変更を保存", class:"btn btn-success" %></td>
-        </tr>
-      </table>
+        <table class="table table-borderless">
+          <tr>
+            <td>会員ID</td>
+            <td><%= @user.id %></td>
+          </tr>
+          <tr>
+            <td>ユーザー名</td>
+            <td><%= f.text_field :name, autofocus: true, autocomplete: "username" %></td>
+          </tr>
+          <tr>
+            <td>メールアドレス</td>
+            <td><%= f.text_field :email, autofocus: true, autocomplete: "email" %></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>会員ステータス</td>
+            <td>
+              <%= f.select :user_status, options_for_select({"有効ユーザー" => "active", "一時凍結" => "banned", "退会済み" => "inactive"}, @user.user_status) %>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= f.submit "変更を保存", class:"btn btn-success" %></td>
+          </tr>
+        </table>
       <% end %>
     </div>
   </div>

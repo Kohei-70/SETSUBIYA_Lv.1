@@ -1,19 +1,20 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container address">
-    <button type="button" class="btn btn-lg btn-outline-secondary">
-      <div class="address">
-      <%= link_to root_path, class: "navbar-brand m-auto" do %>
-        <i class="fa-solid fa-wrench"></i> 設備屋Lv.1
-      <% end %>
-      </div>
-    </button>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id = "navbarNavDropdown">
-      <ul class="navbar-nav ml-auto">
+    <div class="container address">
+      <button type="button" class="btn btn-lg btn-outline-secondary">
+        <div class="address">
+          <%= link_to root_path, class: "navbar-brand m-auto" do %>
+            <i class="fa-solid fa-wrench"></i>&nbsp;設備屋Lv.1
+          <% end %>
+        </div>
+      </button>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id = "navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
           <% if admin_signed_in? %>
+            <!--adminログイン状態の際に、表示したいheaderのメニューを記載-->
             <li>
               <button type="button" class="btn btn-sm btn-outline-secondary ml-3">
                 <%= link_to "問題一覧", admin_quizzes_path, class: 'nav-link text-light' %>
@@ -21,7 +22,7 @@
             </li>
             <li>
               <button type="button" class="btn btn-sm btn-outline-secondary ml-3">
-              <%= link_to "会員一覧", admin_users_path, class: 'nav-link text-light' %>
+                <%= link_to "会員一覧", admin_users_path, class: 'nav-link text-light' %>
               </button>
             </li>
             <li>

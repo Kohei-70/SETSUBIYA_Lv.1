@@ -18,7 +18,6 @@ Rails.application.routes.draw do
         post 'answer'
         get 'answer'
       end
-      # resource :bookmarks, only: [:create, :destroy]
       resources :bookmarks, only: [:index, :create, :destroy] do
         member do
           get 'quiz'
@@ -28,7 +27,6 @@ Rails.application.routes.draw do
       end
       resources :quiz_comments, only: [:create, :destroy]
     end
-    # resources :bookmarks, only: [:index, :show]
     get "/search", to: "searches#search"
     resources :searches, only: [:index] do
       member do
@@ -38,7 +36,6 @@ Rails.application.routes.draw do
       end
     end
     root to: 'homes#top'
-
   end
 
   devise_for :admin, skip: [:registrations, :passwords], controllers: {

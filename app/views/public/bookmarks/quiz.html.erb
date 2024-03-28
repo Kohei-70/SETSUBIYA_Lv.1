@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row">
-    <div class="col">
+  <div class="row justify-content-center">
+    <div class="col-md-9 mt-4 mb-4">
       <%= form_with url:answer_quiz_bookmark_path(@bookmark_quiz), method: :post do |f| %>
         <%= render 'public/quizzes/quiz_template', quiz: @bookmark_quiz, f: f %>
       <% end %>

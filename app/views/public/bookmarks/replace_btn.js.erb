@@ -1,3 +1,1 @@
-<!--console.log("<%#= @bookmark.quiz_id %>");-->
-<!--console.log("aaaaa");-->
 $('.bookmark-<%= @bookmark.quiz_id %>').html("<%= j(render 'public/bookmarks/btn',  quiz: @bookmark.quiz ) %>")
