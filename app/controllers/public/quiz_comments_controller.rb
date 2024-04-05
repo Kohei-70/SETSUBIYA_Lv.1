@@ -3,7 +3,10 @@ class Public::QuizCommentsController < ApplicationController
     @quiz = Quiz.find(params[:quiz_id])
     @comment = current_user.quiz_comments.new(quiz_comment_params)
     @comment.quiz_id = @quiz.id
-    @comment.save
+    @comment.score = Language.get_data(quiz_comment_params[:comment])  #この行を追加
+    if @comment.score >= -0.7
+      @comment.save
+    end
   end
 
   def destroy

@@ -15,6 +15,7 @@
       <tr>
         <td><%= quiz_comment.user.name %></td>
         <td><%= quiz_comment.comment %></td>
+        <td><span class="sentiment-score">本文の感情分析スコア<%= quiz_comment.score %></span></td>
         <td>
           <% if quiz_comment.user == current_user %>
             <%= link_to "Destroy", quiz_quiz_comment_path(quiz, quiz_comment), method: :delete, class: "btn btn-sm btn-danger float-end", remote: true %>
